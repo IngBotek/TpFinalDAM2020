@@ -1,0 +1,7 @@
+{
+  "name": "TpFinal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

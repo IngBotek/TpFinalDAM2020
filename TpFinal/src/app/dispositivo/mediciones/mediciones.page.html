@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dispositivo/{{this.ID}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro de mediciones "{{this.sensor}}"</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ngx-datatable 
+      class="material"
+      [limit]="8" 
+      [rows]="rows" 
+      [rowHeight]="50" 
+      [columns]="columns"
+      [columnMode]="'force'" 
+      [sortType]="'multi'" 
+      [headerHeight]="50" 
+      [footerHeight]="50">
+      <ngx-datatable-column name="Fecha">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value | ajustarFecha}} 
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Valor">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}} [kPA] 
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</ion-content>
