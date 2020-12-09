@@ -38,31 +38,6 @@ export class DispositivoPage implements OnInit {
   // Recuperamos el ID y solicitamos la ultima medicion del sensor para reflejarlo en el medidor
   ngOnInit() {
     this.ID=this.router.snapshot.paramMap.get('id');
-    this.med_id.getMedicionByIdDispositivo(this.ID).then(
-      (ultima_med)=>{this.valorObtenido=Number(ultima_med.valor)}
-    );
-    setTimeout(()=>{
-    console.log("Cambio el valor del sensor");
-      //llamo al update del chart para refrescar y mostrar el nuevo valor
-      this.myChart.update({series: [{
-          name: 'kPA',
-          data: [this.valorObtenido],
-          tooltip: {
-              valueSuffix: ' kPA'
-          }
-      }]});
-    },500);
-
-    // Cambio de color de los toolbar's segun la presion medida. (Necesaria una pequena espera)  
-    setTimeout(()=>{
-    if (this.valorObtenido <=10){
-      this.colorToolbar="success";
-      console.log(this.valorObtenido)
-    } else if (this.valorObtenido >10 && this.valorObtenido <=30){
-      this.colorToolbar="warning";
-    } else {
-      this.colorToolbar="danger";
-    }},200);
   }
 
 
@@ -116,6 +91,35 @@ export class DispositivoPage implements OnInit {
   // Se dispara al ingresar a una página, antes de que se convierta en la activa.
   ionViewWillEnter(){
     this.valvulaState();
+
+    this.med_id.getMedicionByIdDispositivo(this.ID).then(
+      (ultima_med)=>{this.valorObtenido=Number(ultima_med.valor)}
+    );
+
+    setTimeout(()=>{
+      console.log("Cambio el valor del sensor");
+        //llamo al update del chart para refrescar y mostrar el nuevo valor
+        this.myChart.update({series: [{
+            name: 'kPA',
+            data: [this.valorObtenido],
+            tooltip: {
+                valueSuffix: ' kPA'
+            }
+        }]});
+      },500);
+
+ // Cambio de color de los toolbar's segun la presion medida. (Necesaria una pequena espera)  
+ setTimeout(()=>{
+  if (this.valorObtenido <=10){
+    this.colorToolbar="success";
+    console.log(this.valorObtenido)
+  } else if (this.valorObtenido >10 && this.valorObtenido <=30){
+    this.colorToolbar="warning";
+  } else {
+    this.colorToolbar="danger";
+  }},200);
+
+
   }
 
 
