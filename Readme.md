@@ -44,7 +44,7 @@ Finalizadas las instalaciones:
 
 1. Crearse una nueva carpeta y abrir un terminal en ella para clonarse este repositorio ejecutando el comando 
 
-git clone 
+`git clone https://github.com/IngBotek/TpFinalDAM2020.git`
 
 2. Habiendo clonado el repositorio crear allí mismo una nueva_carpeta, parase dentro de ella en un terminal y crear un proyecto en blanco de ionic ejecutando el comando:
 
