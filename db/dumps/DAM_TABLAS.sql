@@ -1,17 +1,22 @@
-----------------------------------------------------
+-- --------------------------------------------------
 -- CREACION DE TABLAS PARA TP_FINAL DAM
-----------------------------------------------------
+-- --------------------------------------------------
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
--------------------------------------------------------
+
+-- -----------------------------------------------------
 -- Schema DAM
--------------------------------------------------------
+-- -----------------------------------------------------
+
 CREATE SCHEMA IF NOT EXISTS `DAM` DEFAULT CHARACTER SET utf8 ;
 USE `DAM` ;
--------------------------------------------------------
+
+-- -----------------------------------------------------
 -- Table `DAM`.`Electrovalvulas`
--------------------------------------------------------
+-- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `DAM`.`Electrovalvulas` ;
 
 CREATE TABLE IF NOT EXISTS `DAM`.`Electrovalvulas` (
@@ -19,9 +24,11 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Electrovalvulas` (
   `nombre` VARCHAR(45) NULL,
   PRIMARY KEY (`electrovalvulaId`))
 ENGINE = InnoDB;
--------------------------------------------------------
+
+-- -----------------------------------------------------
 -- Table `DAM`.`Dispositivos`
--------------------------------------------------------
+-- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `DAM`.`Dispositivos` ;
 
 CREATE TABLE IF NOT EXISTS `DAM`.`Dispositivos` (
@@ -37,9 +44,11 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Dispositivos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
--------------------------------------------------------
+
+-- -----------------------------------------------------
 -- Table `DAM`.`Mediciones`
--------------------------------------------------------
+-- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `DAM`.`Mediciones` ;
 
 CREATE TABLE IF NOT EXISTS `DAM`.`Mediciones` (
@@ -55,9 +64,11 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Mediciones` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
--------------------------------------------------------
+
+-- -----------------------------------------------------
 -- Table `DAM`.`Log_Riegos`
--------------------------------------------------------
+-- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `DAM`.`Log_Riegos` ;
 
 CREATE TABLE IF NOT EXISTS `DAM`.`Log_Riegos` (
@@ -76,9 +87,11 @@ ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
---------------------------------------------------------------
--- INSERT's -- NO SE HACEN INSERTS DE LOG'S
---------------------------------------------------------------
+
+-- ------------------------------------------------------------
+-- INSERT's (NO SE HACEN INSERTS DE LOG'S)
+-- ------------------------------------------------------------
+
 INSERT INTO DAM.Electrovalvulas (nombre) VALUES ('eLPatio');
 INSERT INTO DAM.Electrovalvulas (nombre) VALUES ('eLCocina');
 INSERT INTO DAM.Electrovalvulas (nombre) VALUES ('eLJardinDelantero');
